@@ -19,7 +19,7 @@ module.exports = function(grunt) {
     // },
     concat: {
       dist: {
-        src: ['<banner:meta.banner>', 'chUI/Dom/Dom.js', 'chUI/Data/Data.js'],
+        src: ['<banner:meta.banner>', 'chUI/Core/Core.js', 'chUI/Dom/Dom.js', 'chUI/Data/Data.js'],
         dest: 'dist/chUI-all.js'
       }
     },
