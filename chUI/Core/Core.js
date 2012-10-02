@@ -2,11 +2,9 @@
  * @class chUI
  * @singleton
  */
-var chUI =  (function(window, undefined) {
+var chUI = chUI || (function(window, undefined) {
     var chui = {},
         C;
-
-    chui.window = window;
 
     function isFunction(value) { return typeof value === 'function'; }
     function isObject(value) { return typeof value === 'object'; }
@@ -20,7 +18,7 @@ var chUI =  (function(window, undefined) {
 
         } else if ( isString(selector) ){
 
-        } 
+        }
         //uzywamy wlasnych kolekcji ?
         //else if ()
         //uzyc contextu
@@ -30,9 +28,33 @@ var chUI =  (function(window, undefined) {
         return chui.sel(selector, context);
     };
 
+    //merge objects
+    /*
+    chui.apply = function(object, config) {
+        if (object && config && typeof config === 'object') {
+            var i, j, k;
+
+            for (i in config) {
+                object[i] = config[i];
+            }
+
+            if (enumerables) {
+                for (j = enumerables.length; j--;) {
+                    k = enumerables[j];
+                    if (config.hasOwnProperty(k)) {
+                        object[k] = config[k];
+                    }
+                }
+            }
+        }
+
+        return object;
+    };
+    */
     C.chui = chui;
+    C.window = window;
 
     return C;
-})();
+})(window);
 
 window.chUI = window.chUI || chUI;
